@@ -1,7 +1,9 @@
 package com.training.springcore.service;
 
 import com.training.springcore.model.Site;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SiteServiceImpl  implements SiteService{
 
     private CaptorService captorService;
