@@ -6,17 +6,19 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class BigCorpApplication {
 
+    public static final ApplicationContext CONTEXT = new AnnotationConfigApplicationContext(BigCorpApplicationConfig.class);
+
     public static void main (String[] args){
         BigCorpApplication application = new BigCorpApplication();
         application.run();
     }
 
     public void run(){
-        ApplicationContext context = new AnnotationConfigApplicationContext(BigCorpApplicationConfig.class);
+
         System.out.println("Application startup");
-        SiteService siteService = (SiteService) context.getBean("siteService");
+        SiteService siteService = (SiteService) CONTEXT.getBean("siteService");
         System.out.println(siteService.findById("siteA"));
-        siteService = (SiteService) context.getBean("siteService");
+        siteService = (SiteService) CONTEXT.getBean("siteService");
         System.out.println(siteService.findById("siteA"));
     }
 }
