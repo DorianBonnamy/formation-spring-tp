@@ -13,8 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.time.Instant;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = {MeasureServiceConfigurationTest.class})
@@ -56,6 +55,7 @@ public class SimulatedMeasureServiceTest {
         assertThatThrownBy(()-> service.readMeasures(captor, end, start, MeasureStep.ONE_DAY))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("start must be before end");
+        fail("Haha");
     }
 
     @Test
