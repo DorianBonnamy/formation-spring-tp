@@ -1,14 +1,19 @@
 package com.training.springcore.service;
 
 import com.training.springcore.model.Captor;
+import com.training.springcore.service.measure.FixedMeasureService;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 
 
 public class CaptorServiceImplTest {
-    private CaptorServiceImpl captorService = new CaptorServiceImpl();
+//    FixedMeasureService fixedMeasureService = new FixedMeasureService();
+
+    @Autowired
+    private CaptorServiceImpl captorService;
 
     @Test
     public void findBySiteShouldReturnNullWhenIdIsNull() {
