@@ -6,17 +6,17 @@ import java.util.Set;
 
 public class ApplicationInfo {
 
-    @Value("${bigcorp.name}")
     private String name;
-
-    @Value("${bigcorp.version}")
-    private Integer version;
-
-    @Value("${bigcorp.emails}")
     private Set<String> emails;
-
     @Value("${bigcorp.webSiteUrl}")
     private String webSiteUrl;
+    private Integer version;
+
+    public ApplicationInfo(String name, Integer version, Set<String> emails) {
+        this.name = name;
+        this.emails = emails;
+        this.version = version;
+    }
 
     public String getName() {
         return name;
