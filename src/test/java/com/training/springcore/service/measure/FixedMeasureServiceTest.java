@@ -8,16 +8,23 @@ import com.training.springcore.model.Measure;
 import com.training.springcore.model.MeasureStep;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.Instant;
 import java.util.List;
 
-
+@RunWith(SpringRunner.class)
+@ContextConfiguration(classes = {MeasureServiceConfigurationTest.class})
 public class FixedMeasureServiceTest {
+    @Autowired
     private FixedMeasureService service;
     /**
      * Captor used in tests
      */
+
     private Captor captor = new Captor("test");
     /**
      * Start instant used in tests
@@ -27,11 +34,6 @@ public class FixedMeasureServiceTest {
      * End instant used in tests. We define a one day period
      */
     Instant end = start.plusSeconds(60 * 60 * 24);
-
-    @Before
-    public void init() {
-        service = new FixedMeasureService();
-    }
 
     @Test
     public void readMeasuresThrowsExceptionWhenArgIsNull() {
